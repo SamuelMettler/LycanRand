@@ -1,14 +1,23 @@
 import random
 # Reset previousWolf List every X turns
-RESET = 5
+while True :
+    try : 
+        RESET = int(input('A quel point la variance doit être augmenté ? 1 (variance aléatoire) to 5 (+ de variance) : '))
+        if RESET < 1 or RESET > 5:
+            raise ValueError
+        
+        break
+    except ValueError:
+        print("entre 1 et 5 uniquement")
 
+counter = 0
+
+previousWolf = []
 hunterTracker = [0 for i in range(10)]
 wolfTracker = [0 for i in range(10)]
 specialTracker = [0 for i in range(10)]
 allPlayer = list(range(1,11))
 
-previousWolf = []
-counter = 0
 while True :
     if counter% RESET == 0 :
         previousWolf = []
